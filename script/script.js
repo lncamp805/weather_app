@@ -46,11 +46,12 @@ function updateCity(event) {
 }
 
 let citySearch = document.querySelector("#city-search");
-console.log(citySearch);
+//console.log(citySearch);
 citySearch.addEventListener("submit", updateCity);
 
 function showCurrentLocationTemp(response) {
   let currentTemp = Math.round(response.data.main.temp);
+  let todayCurrent = document.querySelector("#today-current");
   let city = response.data.name;
   let todayHigh = document.querySelector("#today-high");
   let todayLow = document.querySelector("#today-low");
@@ -58,6 +59,7 @@ function showCurrentLocationTemp(response) {
   let todayTempMax = Math.round(response.data.main.temp_max);
   let todayTempMin = Math.round(response.data.main.temp_min);
   let todayWeatherValue = response.data.weather[0].description;
+  todayCurrent.innerHTML = `Current temperature: ${currentTemp}°F`;
   todayHigh.innerHTML = `High temp: ${todayTempMax}°F`;
   todayLow.innerHTML = `Low temp: ${todayTempMin}°F`;
   todayWeather.innerHTML = `${todayWeatherValue}`;
