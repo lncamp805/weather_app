@@ -74,12 +74,8 @@ function showCurrentLocationTemp(response) {
 }
 
 function showPosition(position) {
-  console.log(position);
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  console.log(latitude);
-  console.log(longitude);
-
   let apiKey = "0b3e60b3ftc9e5b1a243b344bf94oe49";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showCurrentLocationTemp);
