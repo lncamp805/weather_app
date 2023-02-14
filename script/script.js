@@ -46,31 +46,25 @@ function updateCity(event) {
 }
 
 let citySearch = document.querySelector("#city-search");
-//console.log(citySearch);
 citySearch.addEventListener("submit", updateCity);
 
 function showCurrentLocationTemp(response) {
-  let iconId = response.data.weather[0].icon;
-  let currentTemp = Math.round(response.data.main.temp);
+  let iconId = response.data.condition.icon_url;
+  let currentTemp = Math.round(response.data.temperature.current);
   let todayCurrent = document.querySelector("#today-current");
-  let city = response.data.name;
-  let todayHigh = document.querySelector("#today-high");
-  let todayLow = document.querySelector("#today-low");
+  let city = response.data.city;
+  let country = response.data.country;
+  let todayFeelsLike = document.querySelector("#today-feels-like");
   let todayWeatherDescrip = document.querySelector("#today-weather");
-  let todayTempMax = Math.round(response.data.main.temp_max);
-  let todayTempMin = Math.round(response.data.main.temp_min);
-  let todayWeatherValue = response.data.weather[0].description;
+  let todayTempFeelsLike = Math.round(response.data.temperature.feels_like);
+  let todayWeatherValue = response.data.condition.description;
   let todayIcon = document.querySelector("#today-icon");
   todayCurrent.innerHTML = `Current temperature: ${currentTemp}°F`;
-  todayHigh.innerHTML = `High temp: ${todayTempMax}°F`;
-  todayLow.innerHTML = `Low temp: ${todayTempMin}°F`;
+  todayFeelsLike.innerHTML = `Feels like: ${todayTempFeelsLike}°F`;
   todayWeatherDescrip.innerHTML = `${todayWeatherValue}`;
   let displayCity = document.querySelector("h2");
-  displayCity.innerHTML = `${city}`;
-  todayIcon.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${iconId}@2x.png`
-  );
+  displayCity.innerHTML = `${city}, ${country}`;
+  todayIcon.setAttribute("src", `${iconId}`);
 }
 
 function showPosition(position) {
