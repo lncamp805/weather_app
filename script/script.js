@@ -52,6 +52,7 @@ let citySearch = document.querySelector("#city-search");
 citySearch.addEventListener("submit", updateCity);
 
 function showCurrentLocationTemp(response) {
+  farhenheitTemperature = response.data.temperature.current;
   let iconId = response.data.condition.icon_url;
   let currentTemp = Math.round(response.data.temperature.current);
   let todayCurrent = document.querySelector("#today-current");
@@ -84,3 +85,23 @@ function currentLocation() {
 
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", currentLocation);
+
+function displayFarhenheit() {
+  let todayCurrent = document.querySelector("#today-current");
+  todayCurrent.innerHTML = Math.round(farhenheitTemperature);
+}
+
+let farhenheitLink = document.querySelector("#farhenheit-link");
+farhenheitLink.addEventListener("click", displayFarhenheit);
+
+function displayCelcius(event) {
+  event.preventDefault();
+  let todayCurrent = document.querySelector("#today-current");
+  let celciusTemperature = (farhenheitTemperature - 32) * (5 / 9);
+  todayCurrent.innerHTML = Math.round(celciusTemperature);
+}
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", displayCelcius);
+
+let farhenheitTemperature = null;
