@@ -50,21 +50,27 @@ let citySearch = document.querySelector("#city-search");
 citySearch.addEventListener("submit", updateCity);
 
 function showCurrentLocationTemp(response) {
+  let iconId = response.data.weather[0].icon;
   let currentTemp = Math.round(response.data.main.temp);
   let todayCurrent = document.querySelector("#today-current");
   let city = response.data.name;
   let todayHigh = document.querySelector("#today-high");
   let todayLow = document.querySelector("#today-low");
-  let todayWeather = document.querySelector("#today-weather");
+  let todayWeatherDescrip = document.querySelector("#today-weather");
   let todayTempMax = Math.round(response.data.main.temp_max);
   let todayTempMin = Math.round(response.data.main.temp_min);
   let todayWeatherValue = response.data.weather[0].description;
+  let todayIcon = document.querySelector("#today-icon");
   todayCurrent.innerHTML = `Current temperature: ${currentTemp}°F`;
   todayHigh.innerHTML = `High temp: ${todayTempMax}°F`;
   todayLow.innerHTML = `Low temp: ${todayTempMin}°F`;
-  todayWeather.innerHTML = `${todayWeatherValue}`;
+  todayWeatherDescrip.innerHTML = `${todayWeatherValue}`;
   let displayCity = document.querySelector("h2");
   displayCity.innerHTML = `${city}`;
+  todayIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconId}@2x.png`
+  );
 }
 
 function showPosition(position) {
