@@ -32,6 +32,9 @@ let hours = now.getHours();
 let minutes = now.getMinutes();
 
 updatedDate.innerHTML = `${today} ${currentMonth} ${date}, ${year} ${hours}:${minutes}`;
+if (minutes < 10) {
+  updatedDate.innerHTML = `${today} ${currentMonth} ${date}, ${year} ${hours}:0${minutes}`;
+}
 
 function updateCity(event) {
   event.preventDefault();
