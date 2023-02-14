@@ -86,7 +86,8 @@ function currentLocation() {
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", currentLocation);
 
-function displayFarhenheit() {
+function displayFarhenheit(event) {
+  event.preventDefault();
   let todayCurrent = document.querySelector("#today-current");
   todayCurrent.innerHTML = Math.round(farhenheitTemperature);
 }
