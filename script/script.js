@@ -58,13 +58,13 @@ function showCurrentLocationTemp(response) {
   let todayCurrent = document.querySelector("#today-current");
   let city = response.data.city;
   let country = response.data.country;
-  let todayFeelsLike = document.querySelector("#today-feels-like");
+  let todayWindSpeed = document.querySelector("#today-wind-speed");
   let todayWeatherDescrip = document.querySelector("#today-weather");
-  let todayTempFeelsLike = Math.round(response.data.temperature.feels_like);
+  let currentWindSpeed = Math.round(response.data.wind.speed);
   let todayWeatherValue = response.data.condition.description;
   let todayIcon = document.querySelector("#today-icon");
   todayCurrent.innerHTML = `${currentTemp}`;
-  todayFeelsLike.innerHTML = `Feels like: ${todayTempFeelsLike}°F`;
+  todayWindSpeed.innerHTML = `${currentWindSpeed}`;
   todayWeatherDescrip.innerHTML = `${todayWeatherValue}`;
   let displayCity = document.querySelector("h2");
   displayCity.innerHTML = `${city}, ${country}`;
