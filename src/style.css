@@ -64,3 +64,9 @@ h2 {
 #today-weather {
   text-transform: capitalize;
 }
+
+.inactivate-link {
+  color: black;
+  text-decoration: none;
+  cursor: default;
+}

@@ -63,7 +63,7 @@ function showCurrentLocationTemp(response) {
   let todayTempFeelsLike = Math.round(response.data.temperature.feels_like);
   let todayWeatherValue = response.data.condition.description;
   let todayIcon = document.querySelector("#today-icon");
-  todayCurrent.innerHTML = `Current temperature: ${currentTemp}°F`;
+  todayCurrent.innerHTML = `${currentTemp}`;
   todayFeelsLike.innerHTML = `Feels like: ${todayTempFeelsLike}°F`;
   todayWeatherDescrip.innerHTML = `${todayWeatherValue}`;
   let displayCity = document.querySelector("h2");
@@ -90,6 +90,8 @@ function displayFarhenheit(event) {
   event.preventDefault();
   let todayCurrent = document.querySelector("#today-current");
   todayCurrent.innerHTML = Math.round(farhenheitTemperature);
+  celciusLink.classList.remove("inactivate-link");
+  farhenheitLink.classList.add("inactivate-link");
 }
 
 let farhenheitLink = document.querySelector("#farhenheit-link");
@@ -100,6 +102,8 @@ function displayCelcius(event) {
   let todayCurrent = document.querySelector("#today-current");
   let celciusTemperature = (farhenheitTemperature - 32) * (5 / 9);
   todayCurrent.innerHTML = Math.round(celciusTemperature);
+  celciusLink.classList.add("inactivate-link");
+  farhenheitLink.classList.remove("inactivate-link");
 }
 
 let celciusLink = document.querySelector("#celcius-link");
