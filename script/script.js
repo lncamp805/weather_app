@@ -39,8 +39,8 @@ function updateCity(event) {
   let displayCity = document.querySelector("h2");
   displayCity.innerHTML = `${newCity.value}`;
 
-  let apiKey = "5ef4de8cd6b7fefcd7c42f98cf464ce8";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${newCity.value}&appid=${apiKey}&units=imperial`;
+  let apiKey = "0b3e60b3ftc9e5b1a243b344bf94oe49";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${newCity.value}&key=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(showCurrentLocationTemp);
 }
@@ -80,9 +80,8 @@ function showPosition(position) {
   console.log(latitude);
   console.log(longitude);
 
-  let apiKey = "5ef4de8cd6b7fefcd7c42f98cf464ce8";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
-
+  let apiKey = "0b3e60b3ftc9e5b1a243b344bf94oe49";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showCurrentLocationTemp);
 }
 
