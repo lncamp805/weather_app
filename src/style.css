@@ -42,21 +42,16 @@ h5 {
   text-align: center;
   background-color: #97acb782;
   border-radius: 35px;
-  max-width: 300px;
+  max-width: 295px;
 }
 
 .card-img-top {
-  width: 200px;
+  width: 175px;
   display: block;
   margin: 0 auto;
   border-radius: 15px;
   position: relative;
   top: 10px;
-}
-
-.today-text {
-  border-bottom-left-radius: 35px;
-  border-bottom-right-radius: 35px;
 }
 
 .forecast {
@@ -66,7 +61,7 @@ h5 {
 }
 
 .forecast-card {
-  width: 280px;
+  width: 270px;
 }
 .card-title {
   font-weight: 600;
@@ -92,13 +87,13 @@ h5 {
 .forecast-img {
   width: 100px;
   position: relative;
-  top: 5px;
+  top: -12px;
   right: 24px;
 }
 
 .forecast-body {
   width: 200px;
   position: relative;
-  left: 75px;
-  top: -75px;
+  left: 64px;
+  top: -108px;
 }

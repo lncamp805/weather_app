@@ -41,7 +41,6 @@ function updateCity(event) {
   let newCity = document.querySelector("#search-input");
   let displayCity = document.querySelector("h2");
   displayCity.innerHTML = `${newCity.value}`;
-
   let apiKey = "0b3e60b3ftc9e5b1a243b344bf94oe49";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${newCity.value}&key=${apiKey}&units=imperial`;
 
@@ -138,8 +137,6 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   forecastHTML = `<div class="col-6">`;
-
-  console.log(forecast);
 
   forecast.forEach(function (forecastDays, index) {
     if (index < 6) {
