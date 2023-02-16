@@ -110,3 +110,51 @@ let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", displayCelcius);
 
 let farhenheitTemperature = null;
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  forecastHTML = `<div class="col-6">`;
+  let day = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  day.forEach(function (days) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="card mb-3" style="max-width: 540px">
+            <div class="row g-0 forecast">
+              <div class="col-md-4">
+                <img
+                  src="images/sunny-cold.jpg"
+                  class="img-fluid rounded-start"
+                  alt="Sunny but cold."
+                  max-width="50px"
+                />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">${days}h5>
+                  <p class="card-text">
+                    High temp: 20°F
+                    <br />
+                    Low temp: 18°F
+                    <br />
+                    Chance of preciptation: 13%
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
