@@ -51,14 +51,10 @@ function updateCity(event) {
 let citySearch = document.querySelector("#city-search");
 citySearch.addEventListener("submit", updateCity);
 
-function showForecast(response) {
-  console.log(response);
-}
-
 function getForecast(city) {
   let apiKey = "0b3e60b3ftc9e5b1a243b344bf94oe49";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(showForecast);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showLocationTemp(response) {
@@ -165,5 +161,3 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
-displayForecast();
