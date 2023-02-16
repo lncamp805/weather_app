@@ -128,7 +128,7 @@ function displayForecast() {
   day.forEach(function (days) {
     forecastHTML =
       forecastHTML +
-      `<div class="card mb-3" style="max-width: 540px">
+      `<div class="card mb-3 forecast-card" style="max-width: 540px">
             <div class="row g-0 forecast">
               <div class="col-md-4 forecast-img">
                 <img
@@ -145,8 +145,6 @@ function displayForecast() {
                     High temp: 20°F
                     <br />
                     Low temp: 18°F
-                    <br />
-                    Chance of preciptation: 13%
                   </p>
                 </div>
               </div>

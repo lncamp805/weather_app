@@ -34,6 +34,10 @@ h2 {
   font-weight: 600;
 }
 
+h5 {
+  font-size: 16px;
+}
+
 .today {
   text-align: center;
   background-color: #97acb782;
@@ -50,14 +54,19 @@ h2 {
   top: 10px;
 }
 
+.today-text {
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+}
+
 .forecast {
-  height: 125px;
+  height: 75px;
   display: block;
   margin: 0 auto;
 }
 
 .forecast-card {
-  width: 300px;
+  width: 280px;
 }
 .card-title {
   font-weight: 600;
@@ -66,6 +75,8 @@ h2 {
 .card-text {
   border-left: solid 1px;
   padding-left: 5px;
+  max-width: 160px;
+  font-size: 14px;
 }
 
 #today-weather {
@@ -80,11 +91,14 @@ h2 {
 
 .forecast-img {
   width: 100px;
+  position: relative;
+  top: 5px;
+  right: 24px;
 }
 
 .forecast-body {
   width: 200px;
   position: relative;
-  left: 100px;
-  top: -100px;
+  left: 75px;
+  top: -75px;
 }
