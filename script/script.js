@@ -45,13 +45,13 @@ function updateCity(event) {
   let apiKey = "0b3e60b3ftc9e5b1a243b344bf94oe49";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${newCity.value}&key=${apiKey}&units=imperial`;
 
-  axios.get(apiUrl).then(showCurrentLocationTemp);
+  axios.get(apiUrl).then(showLocationTemp);
 }
 
 let citySearch = document.querySelector("#city-search");
 citySearch.addEventListener("submit", updateCity);
 
-function showCurrentLocationTemp(response) {
+function showLocationTemp(response) {
   farhenheitTemperature = response.data.temperature.current;
   let iconId = response.data.condition.icon_url;
   let currentTemp = Math.round(response.data.temperature.current);
@@ -76,7 +76,7 @@ function showPosition(position) {
   let longitude = position.coords.longitude;
   let apiKey = "0b3e60b3ftc9e5b1a243b344bf94oe49";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(showCurrentLocationTemp);
+  axios.get(apiUrl).then(showLocationTemp);
 }
 
 function currentLocation() {
