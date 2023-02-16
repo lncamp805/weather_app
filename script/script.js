@@ -118,6 +118,21 @@ celciusLink.addEventListener("click", displayCelcius);
 
 let farhenheitTemperature = null;
 
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -143,7 +158,9 @@ function displayForecast(response) {
               </div>
               <div class="col-md-8 forecast-body">
                 <div class="card-body">
-                  <h5 class="card-title">${forecastDays.dt}<h5>
+                  <h5 class="card-title">${formatForecastDay(
+                    forecastDays.time
+                  )}<h5>
                   <p class="card-text">
                     High temp: ${Math.round(forecastDays.temperature.maximum)}°
                     <br />
