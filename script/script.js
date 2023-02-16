@@ -140,7 +140,7 @@ function displayForecast() {
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">${days}h5>
+                  <h5 class="card-title">${days}<h5>
                   <p class="card-text">
                     High temp: 20°F
                     <br />
