@@ -5,6 +5,7 @@ body {
 
 .container {
   background-color: white;
+  max-width: 600px;
 }
 
 h1 {
@@ -37,10 +38,11 @@ h2 {
   text-align: center;
   background-color: #97acb782;
   border-radius: 35px;
+  max-width: 300px;
 }
 
 .card-img-top {
-  width: 400px;
+  width: 200px;
   display: block;
   margin: 0 auto;
   border-radius: 15px;
@@ -50,8 +52,13 @@ h2 {
 
 .forecast {
   height: 125px;
+  display: block;
+  margin: 0 auto;
 }
 
+.forecast-card {
+  width: 300px;
+}
 .card-title {
   font-weight: 600;
 }
@@ -69,4 +76,15 @@ h2 {
   color: black;
   text-decoration: none;
   cursor: default;
+}
+
+.forecast-img {
+  width: 100px;
+}
+
+.forecast-body {
+  width: 200px;
+  position: relative;
+  left: 100px;
+  top: -100px;
 }

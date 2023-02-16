@@ -130,7 +130,7 @@ function displayForecast() {
       forecastHTML +
       `<div class="card mb-3" style="max-width: 540px">
             <div class="row g-0 forecast">
-              <div class="col-md-4">
+              <div class="col-md-4 forecast-img">
                 <img
                   src="images/sunny-cold.jpg"
                   class="img-fluid rounded-start"
@@ -138,7 +138,7 @@ function displayForecast() {
                   max-width="50px"
                 />
               </div>
-              <div class="col-md-8">
+              <div class="col-md-8 forecast-body">
                 <div class="card-body">
                   <h5 class="card-title">${days}<h5>
                   <p class="card-text">
