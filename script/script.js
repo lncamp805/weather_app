@@ -141,10 +141,11 @@ function displayForecast(response) {
 
   console.log(forecast);
 
-  forecast.forEach(function (forecastDays) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="card mb-3 forecast-card" style="max-width: 540px">
+  forecast.forEach(function (forecastDays, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="card mb-3 forecast-card" style="max-width: 540px">
             <div class="row g-0 forecast">
               <div class="col-md-4 forecast-img">
                 <img
@@ -170,6 +171,7 @@ function displayForecast(response) {
               </div>
             </div>
           </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
