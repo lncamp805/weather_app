@@ -51,6 +51,16 @@ function updateCity(event) {
 let citySearch = document.querySelector("#city-search");
 citySearch.addEventListener("submit", updateCity);
 
+function showForecast(response) {
+  console.log(response);
+}
+
+function getForecast(city) {
+  let apiKey = "0b3e60b3ftc9e5b1a243b344bf94oe49";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(showForecast);
+}
+
 function showLocationTemp(response) {
   farhenheitTemperature = response.data.temperature.current;
   let iconId = response.data.condition.icon_url;
@@ -69,6 +79,7 @@ function showLocationTemp(response) {
   let displayCity = document.querySelector("h2");
   displayCity.innerHTML = `${city}, ${country}`;
   todayIcon.setAttribute("src", `${iconId}`);
+  getForecast(city);
 }
 
 function showPosition(position) {
@@ -142,9 +153,9 @@ function displayForecast() {
                 <div class="card-body">
                   <h5 class="card-title">${days}<h5>
                   <p class="card-text">
-                    High temp: 20°F
+                    High temp: <span id="high-temp">20</span>°F
                     <br />
-                    Low temp: 18°F
+                    Low temp: <span id="low-temp">18</span>°F
                   </p>
                 </div>
               </div>
