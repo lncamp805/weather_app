@@ -118,28 +118,24 @@ celciusLink.addEventListener("click", displayCelcius);
 
 let farhenheitTemperature = null;
 
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   forecastHTML = `<div class="col-6">`;
-  let day = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
 
-  day.forEach(function (days) {
+  console.log(forecast);
+
+  forecast.forEach(function (forecastDays) {
     forecastHTML =
       forecastHTML +
       `<div class="card mb-3 forecast-card" style="max-width: 540px">
             <div class="row g-0 forecast">
               <div class="col-md-4 forecast-img">
                 <img
-                  src="images/sunny-cold.jpg"
+                  src= "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                    forecastDays.condition.icon
+                  }.png"
                   class="img-fluid rounded-start"
                   alt="Sunny but cold."
                   max-width="50px"
@@ -147,11 +143,11 @@ function displayForecast() {
               </div>
               <div class="col-md-8 forecast-body">
                 <div class="card-body">
-                  <h5 class="card-title">${days}<h5>
+                  <h5 class="card-title">${forecastDays.dt}<h5>
                   <p class="card-text">
-                    High temp: <span id="high-temp">20</span>°F
+                    High temp: ${Math.round(forecastDays.temperature.maximum)}°
                     <br />
-                    Low temp: <span id="low-temp">18</span>°F
+                    Low temp: ${Math.round(forecastDays.temperature.minimum)}°
                   </p>
                 </div>
               </div>
@@ -161,3 +157,5 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+
+currentLocation();
