@@ -92,31 +92,6 @@ function currentLocation() {
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", currentLocation);
 
-function displayFarhenheit(event) {
-  event.preventDefault();
-  let todayCurrent = document.querySelector("#today-current");
-  todayCurrent.innerHTML = Math.round(farhenheitTemperature);
-  celciusLink.classList.remove("inactivate-link");
-  farhenheitLink.classList.add("inactivate-link");
-}
-
-let farhenheitLink = document.querySelector("#farhenheit-link");
-farhenheitLink.addEventListener("click", displayFarhenheit);
-
-function displayCelcius(event) {
-  event.preventDefault();
-  let todayCurrent = document.querySelector("#today-current");
-  let celciusTemperature = (farhenheitTemperature - 32) * (5 / 9);
-  todayCurrent.innerHTML = Math.round(celciusTemperature);
-  celciusLink.classList.add("inactivate-link");
-  farhenheitLink.classList.remove("inactivate-link");
-}
-
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", displayCelcius);
-
-let farhenheitTemperature = null;
-
 function formatForecastDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
